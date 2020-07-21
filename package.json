@@ -1,7 +1,7 @@
 {
   "name": "nodejs-complete-guide",
   "version": "1.0.0",
-  "description": "Complete NOde.js Guide",
+  "description": "Complete Node.js Guide",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MXmaster2s/Node.js-demo.git"
+    "url": "https://github.com/MXmaster2s/Node.js-demo.git"
   },
   "author": "Rohit Kundliwal",
   "license": "ISC",
