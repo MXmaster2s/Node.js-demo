@@ -5,8 +5,8 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-app.set('view engine', 'ejs');
-app.set('views', 'views');
+app.set('view engine', 'ejs');  //setting templating engine to ejs (express understands this)
+app.set('views', 'views');      //telling express where our views files are (this path is default btw)
 
 const adminData = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
