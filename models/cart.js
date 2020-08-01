@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const e = require('express');
 
 const p = path.join(
   path.dirname(process.mainModule.filename),
@@ -35,6 +36,33 @@ module.exports = class Cart {
       fs.writeFile(p, JSON.stringify(cart), err => {
         console.log(err);
       });
+    });
+  }
+
+  static deleteProduct(id, productPrice){
+    fs.readFile(p, (err, fileContent) => {
+      if(err){
+        return;
+      }
+      const updatedCart = {...JSON.parse(fileContent)};
+      const product = updatedProduct.find(prod => prod.id === id);
+      const productQty = product.qty;
+      updatedCart.products = updatedCart.products.filter(prod => prod.id === id );
+      updatedCart.totalPrice = updatedCart.totalPrice - productPrice * productQty;
+      fs.writeFile(p, JSON.stringify(updatedCart), err => {
+        console.log(err);
+      });
+    });
+  }
+
+  static getProducts(cb){
+    fs.readFile(p, (err, fileContent) => {
+      const cart = JSON.parse(fileContent);
+      if(err){
+        cb(null);
+      } else {
+        cb(cart);
+      } 
     });
   }
 };
